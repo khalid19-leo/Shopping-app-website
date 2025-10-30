@@ -1,0 +1,1048 @@
+/* 
+🎯 ملف CSS الرئيسي مع التحسينات
+📱 إرجاع قائمة الموبايل مع إصلاح ظهورها
+🚀 إضافة أنيميشن ظهور لكل الأقسام
+*/
+
+/* 🌍 القواعد العامة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #97d6ff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #d8efff;
+  padding-top: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* 📦 الكونتينر العام */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 🧭 الهيدر - إرجاع قائمة الموبايل */
+.header {
+  background-color: #97d6ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1001;
+}
+
+/* 🍔 زر القائمة للموبايل - إرجاعه */
+.menu-toggle {
+  display: none; /* 🎯 سيظهر فقط في الشاشات الصغيرة */
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 30px;
+  height: 25px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* 📋 قائمة التنقل - الشاشات الكبيرة */
+.nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav a {
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  color: #007bff;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.btn-main {
+  background: #fff;
+  color: #49a2da;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-main:hover {
+  background: #e1f3ff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🏠 قسم الهيرو - أنيميشن ظهور */
+.hero {
+  background-color: #97d6ff;
+  padding: 120px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+
+.hero-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.3s forwards;
+}
+
+.hero-text p {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.4s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #d1f3ff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: #282727;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.store-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: #fff;
+}
+
+.store-btn img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.store-btn .text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.store-btn .text span {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.store-btn .text strong {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  animation: float 3s ease-in-out infinite;
+  opacity: 0;
+  animation: float 3s ease-in-out infinite, fadeIn 0.6s ease 0.6s forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ℹ️ قسم الكروات - أنيميشن ظهور سريع */
+.about-cards {
+  background: #fff;
+  padding: 100px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease 0.1s forwards;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f8fbff;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  max-width: 350px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.15s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.25s; }
+.card:nth-child(5) { animation-delay: 0.3s; }
+.card:nth-child(6) { animation-delay: 0.35s; }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card .icon {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #007bff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ⚙️ قسم المميزات - أنيميشن ظهور سريع */
+.features {
+  background: linear-gradient(135deg, #97d6ff 0%, #6bc2ff 100%);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease 0.1s forwards;
+}
+
+.features h2 {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.2s forwards;
+}
+
+.section-subtitle {
+  color: #e3f2fd;
+  font-size: 1.3rem;
+  margin-bottom: 80px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.3s forwards;
+  font-weight: 300;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 50px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.3s; }
+.feature-card:nth-child(2) { animation-delay: 0.35s; }
+.feature-card:nth-child(3) { animation-delay: 0.4s; }
+.feature-card:nth-child(4) { animation-delay: 0.45s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.55s; }
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.feature-card h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #e3f2fd;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+/* 💰 قسم طريقة العمل - أنيميشن ظهور سريع */
+.how-it-works {
+  background: #fff;
+  padding: 120px 0;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease 0.1s forwards;
+}
+
+.how-it-works h2 {
+  color: #007bff;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.2s forwards;
+}
+
+.how-it-works .section-subtitle {
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 80px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.3s forwards;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  position: relative;
+}
+
+.step-card {
+  background: #f8fbff;
+  border-radius: 20px;
+  padding: 50px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.step-card:nth-child(1) { animation-delay: 0.3s; }
+.step-card:nth-child(2) { animation-delay: 0.35s; }
+.step-card:nth-child(3) { animation-delay: 0.4s; }
+
+.step-card:hover {
+  transform: translateY(-10px);
+  border-color: #49A2DA;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #49A2DA;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.step-icon {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.step-card h3 {
+  color: #007bff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.step-card p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+/* 💬 قسم الآراء - أنيميشن ظهور سريع */
+.testimonials {
+  background: linear-gradient(135deg, #97d6ff 0%, #6bc2ff 100%);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease 0.1s forwards;
+}
+
+.testimonials h2 {
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.2s forwards;
+}
+
+.testimonials .section-subtitle {
+  color: #e3f2fd;
+  font-size: 1.3rem;
+  margin-bottom: 80px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.3s forwards;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 100px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.testimonial-card:nth-child(1) { animation-delay: 0.3s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.35s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.4s; }
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  margin-right: 15px;
+}
+
+.user-details h4 {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 1.1rem;
+}
+
+.testimonial-text {
+  color: #e3f2fd;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.verified-badge {
+  color: #4CAF50;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* 📊 قسم الإحصائيات - أنيميشن ظهور سريع */
+.stats-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 60px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.4s forwards;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.45s; }
+.stat-item:nth-child(2) { animation-delay: 0.5s; }
+.stat-item:nth-child(3) { animation-delay: 0.55s; }
+.stat-item:nth-child(4) { animation-delay: 0.6s; }
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+  color: #e3f2fd;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ⚓ الفوتر - أنيميشن ظهور سريع */
+.footer {
+  background-color: #5190B5;
+  color: #010101;
+  padding: 80px 0 30px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.5s ease 0.1s forwards;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-section {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.15s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.25s; }
+.footer-section:nth-child(4) { animation-delay: 0.3s; }
+
+.footer-section h3 {
+  color: #00385B;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.footer-section h4 {
+  color: #0066A7;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-section p {
+  color: #020202;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* أزرار تحميل التطبيقات في الفوتر */
+.footer-apps {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.store-btn.small {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #2D6589;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 12px 18px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.store-btn.small:hover {
+  background: #69C5FF;
+  transform: translateY(-3px);
+}
+
+/* روابط الفوتر */
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.footer-links a:hover {
+  color: #003A5E;
+  transform: translateX(5px);
+}
+
+/* أيقونات وسائل التواصل */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.social-icon:hover {
+  background: #42B6FF;
+  transform: translateY(-3px);
+}
+
+/* ✏️ إصلاح النشرة البريدية */
+.newsletter p {
+  color: #DBF1FF;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid rgba(66, 75, 81, 1);
+  border-radius: 8px;
+  background: rgba(56, 117, 154, 1);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.newsletter-form input::placeholder {
+  color: #F3F3F3 !important;
+  opacity: 1 !important;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: #49A2DA;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(73, 162, 218, 0.2);
+  color: #fff;
+}
+
+.newsletter-form button {
+  background: #49A2DA;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.newsletter-form button:hover {
+  background: #007bff;
+  transform: scale(1.05);
+}
+
+/* الخط الفاصل */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  margin: 40px 0 30px;
+}
+
+/* الجزء السفلي */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.footer-bottom-links a {
+  color: #2F4EFF;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #49A2DA;
+}
+
+/* 📱 التصميم المتجاوب للشاشات الصغيرة - إرجاع قائمة الموبايل */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  /* 🍔 إظهار زر القائمة في الشاشات الصغيرة */
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* 📋 قائمة الموبايل المنزلقة */
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    transition: 0.3s;
+    z-index: 999;
+  }
+  
+  .nav.active {
+    left: 0;
+  }
+  
+  .nav ul {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 0;
+  }
+  
+  .nav li {
+    margin: 10px 0;
+  }
+  
+  .nav a {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* تحويل الهامبرجر إلى X */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  /* تعديلات التخطيط للشاشات الصغيرة */
+  .hero-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-image {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .cards-container {
+    gap: 30px;
+  }
+  
+  .card {
+    max-width: 100%;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .feature-card {
+    padding: 40px 25px;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .footer-apps {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .footer-links a {
+    justify-content: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .store-btn {
+    min-width: 200px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  .footer-apps {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🎯 تحسينات إضافية للشاشات الكبيرة */
+@media (min-width: 1200px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  }
+}
+
+/* 🔧 تحسين إمكانية الوصول */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
